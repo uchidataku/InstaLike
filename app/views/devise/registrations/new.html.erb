@@ -31,5 +31,7 @@
     <% end %>
     
     <p>登録済みの方はこちら<br /><%= link_to "ログイン", new_user_session_path %></p>
+    
+    <%= link_to "Facebookでログイン", user_facebook_omniauth_authorize_path, class: "btn btn-info" %>
   </div>
 </div>
