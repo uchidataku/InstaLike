@@ -49,22 +49,26 @@ RSpec.describe User, type: :model do
     user = FactoryBot.build(:user)
 
     # 無効なメールアドレス
-    it "should reject invalid email addresses" do
-      invalid_addresses = %w[user@example,com user_at_foo.org user.name@example. 
-                            foo@bar_baz.com foo@bar+baz.com]
-      invalid_addresses.each do |invalid_address|
-        user.email = invalid_address
-        expect(user).to_not be_valid
+    context "with invalid email addresses" do
+      it "should reject" do
+        invalid_addresses = %w[user@example,com user_at_foo.org user.name@example. 
+                              foo@bar_baz.com foo@bar+baz.com]
+        invalid_addresses.each do |invalid_address|
+          user.email = invalid_address
+          expect(user).to_not be_valid
+        end
       end
     end
 
     # 有効なメールアドレス
-    it "should accept valid email addresses" do
-      valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org 
-                        first.last@foo.jp alice+bob@baz.cn]
-      valid_addresses.each do |valid_address|
-        user.email = valid_address
-        expect(user).to be_valid
+    context "with valid email addresses" do
+      it "should accept" do
+        valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org 
+                          first.last@foo.jp alice+bob@baz.cn]
+        valid_addresses.each do |valid_address|
+          user.email = valid_address
+          expect(user).to be_valid
+        end
       end
     end
   end
