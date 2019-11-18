@@ -32,9 +32,6 @@
       <%= f.label :sex, "性別" %>
       <%= f.radio_button :sex, 0, checked: true %>男<%= f.radio_button :sex, 1 %>女<br /><br />
       
-      <%= f.label :current_password, "パスワード" %>(更新するにはパスワードの入力が必要です)<br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
-      
       <%= f.submit "更新", class: "btn btn-primary" %>
     <% end %>
     
