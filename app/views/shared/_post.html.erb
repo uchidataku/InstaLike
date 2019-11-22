@@ -1,0 +1,26 @@
+<div class="picture-post-box">
+  <header>
+    <div class="post-box-header">
+      <%= link_to gravatar_for(@post.user, size: 30) %>
+      <%= link_to @post.user.user_name, @post.user %>
+      
+    </div>
+  </header>
+  <div class="picture-box">
+    <h3><%= image_tag @post.picture %></h3>
+  </div>
+  <div class="content-box">
+    <h4><strong><%= @post.user.user_name %></strong>
+    <%= @post.content %></h4>
+  </div>
+  <div class="timestamp-box">
+    <h5><%= time_ago_in_words(@post.created_at) %>前</h5>
+  </div>
+  <div class="comment-box">
+  </div>
+  <% if @post.user == current_user %>
+    <div class="delete-box">
+      <h5><%= link_to "削除する", post_path(@post), method: :delete, data: { confirm: "削除しますか？" } %></h5>
+    </div>
+  <% end %>
+</div>

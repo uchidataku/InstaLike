@@ -1,9 +1,14 @@
-<footer class="footer">
-  <small>
-    Created by Uchida Taku
-  </small>
-  <ul>
-    <li><%= link_to "Help", help_path %></li>
-    <li><%= link_to "お問い合わせ", contact_path %></li>
-  </ul>
+<footer>
+  <div class="container">
+    <small>
+      Created by Uchida Taku
+    </small>
+      <% if user_signed_in? %>
+        <%= link_to "投稿", new_post_path, class: "btn btn-primary" %>
+      <% end %>
+    <ul>
+      <li><%= link_to "Help", help_path %></li>
+      <li><%= link_to "お問い合わせ", contact_path %></li>
+    </ul>
+  </div>
 </footer> 

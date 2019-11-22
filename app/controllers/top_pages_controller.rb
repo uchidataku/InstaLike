@@ -1,5 +1,6 @@
 class TopPagesController < ApplicationController
   def home
+    @user = current_user
   end
   
   def help
@@ -7,4 +8,5 @@ class TopPagesController < ApplicationController
   
   def contact
   end
+  
 end

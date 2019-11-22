@@ -112,6 +112,7 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
+  text-align: center;
 }
 
 footer a {
@@ -169,18 +170,50 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
 .gravatar_edit {
   margin-top: 15px;
 }
 
-.show-pic{
+// post-box
+.picture-post-box{
+  border: solid 0.1px #999;
+  header{
+    height: 40px;
+  }
+}
+
+.post-box-header{
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  .gravatar{
+    margin-right: 10px;
+  }
+}
+
+.delete-box{
+  float: right;
+}
+
+// user.show
+
+.profile-pic{
   display: flex;
   justify-content: center;
+}
+
+.show-pic-box{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.show-pic{
+  width: 33.3333%;
+  padding: 10px;
+  img {
+    width: 100%;
+  }
 }
 
 .stats {

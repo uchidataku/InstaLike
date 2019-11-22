@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   before_save { self.email = self.email.downcase }
+  has_many :posts, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable
   devise :database_authenticatable, :registerable,
@@ -36,5 +37,9 @@ class User < ApplicationRecord
 
     def self.dummy_email(auth)
       "#{auth.uid}-#{auth.provider}@example.com"
+    end
+    
+    def feed
+      Posts.where("user_id = ?", id)
     end
 end
