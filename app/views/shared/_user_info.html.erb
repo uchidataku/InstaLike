@@ -1,24 +1,13 @@
-<h1 class="profile-pic"><%= gravatar_for(@user) %></h1>
-<h2><%= @user.user_name %></h2>
-<h2><%= @user.name %></h2>
-<%= render 'follow_form' if user_signed_in? %>
-<div class="following-follower-list">
-  <a href="<%= following_user_path(@user) %>">
-    <strong id="following" class="stat">
-      <%= @user.following.count %>
-    </strong>
-    フォロー
-  </a>
-  |
-  <a href="<%= followers_user_path(@user) %>">
-    <strong id="followers" class="stat">
-      <%= @user.followers.count %>
-    </strong>
-    フォロワー
-  </a>
+<div class="user-information-box">
+  <h1 class="profile-pic"><%= gravatar_for(@user) %></h1>
+  <h2><%= @user.user_name %></h2>
+  <h2><%= @user.name %></h2>
+  <%= render 'follow_form' if user_signed_in? %>
+  <%= render 'shared/follow_list' %>
+  <h4>投稿数<br /><%= @user.posts.count %></h4>
+  <h5>Webサイト</h5>
+  <h4><%= @user.website %></h4>
+  <h5>自己紹介</h5>
+  <h4><%= @user.introduction %></h4>
 </div>
-<h4>投稿数<br /><%= @user.posts.count %></h4>
-<h5>Webサイト</h5>
-<h4><%= @user.website %></h4>
-<h5>自己紹介</h5>
-<h4><%= @user.introduction %></h4>
+  

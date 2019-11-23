@@ -16,6 +16,7 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  background-color: #fafafa;
 }
 
 section {
@@ -178,6 +179,8 @@ aside {
 
 .picture-post-box{
   border: solid 0.1px #999;
+  background-color: #fff;
+  margin: 10px;
   header{
     height: 40px;
   }
@@ -197,6 +200,12 @@ aside {
 }
 
 // user.show
+
+.user-information-box{
+  background-color: #fff;
+  border: 0.5px solid #bbb;
+  padding: 7px;
+}
 
 .profile-pic{
   display: flex;

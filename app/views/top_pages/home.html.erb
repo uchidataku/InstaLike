@@ -1,12 +1,38 @@
 <% if user_signed_in? %>
   <div class="row">
     <div class="col-md-8">
+      <% @feed_items.each do |post| %>
+        <div class="picture-post-box">
+          <header>
+            <div class="post-box-header">
+              <%= link_to gravatar_for(post.user, size: 30) %>
+              <%= link_to post.user.user_name, post.user %>
+            </div>
+          </header>
+          <div class="picture-box">
+            <h3><%= image_tag post.picture %></h3>
+          </div>
+          <div class="content-box">
+            <h4><strong><%= post.user.user_name %></strong>
+            <%= post.content %></h4>
+          </div>
+          <div class="timestamp-box">
+            <h5><%= time_ago_in_words(post.created_at) %>前</h5>
+          </div>
+          <div class="comment-box">
+          </div>
+        </div>
+      <% end %>
+      <%= will_paginate @feed_items %>
     </div>
     <aside class="col-md-4">
       <section class="user_info">
-        <h1 class="profile-pic"><%= gravatar_for(@user) %></h1>
-        <h2><%= @user.user_name %></h2>
-        <h4>投稿数<br /><%= @user.posts.count %></h4>
+        <div class="user-information-box">
+          <h1 class="profile-pic"><%= gravatar_for(@user) %></h1>
+          <h2><%= link_to @user.user_name, @user %></h2>
+          <%= render 'shared/follow_list' %>
+          <h4>投稿数<br /><%= @user.posts.count %></h4>
+        </div>
       </section>
     </aside>
   </div>
