@@ -10,18 +10,12 @@
           <% end %>
         <% end %>
       <% end %>
+      <%= will_paginate @posts %>
     </div>
   </div>
   <aside class="col-md-4">
     <section class="user_info">
-      <h1 class="profile-pic"><%= gravatar_for(@user) %></h1>
-      <h2><%= @user.user_name %></h2>
-      <h2><%= @user.name %></h2>
-      <h4>投稿数<br /><%= @user.posts.count %></h4>
-      <h5>Webサイト</h5>
-      <h4><%= @user.website %></h4>
-      <h5>自己紹介</h5>
-      <h4><%= @user.introduction %></h4>
+      <%= render 'shared/user_info' %>
     </section>
     <% if current_user.id == @user.id %>
       <h5><%= link_to "プロフィール編集", edit_user_registration_path %></h5>

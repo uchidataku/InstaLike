@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/:id', to: 'users#show', as: :user
     get '/users', to: 'users#index', as: :users
+    get '/users/:id/following', to: 'users#following', as: :following_user
+    get '/users/:id/followers', to: 'users#followers', as: :followers_user
   end
   
-  resources :posts, only: [:new, :create, :show, :destroy]
+  resources :posts,         only: [:new, :create, :show, :destroy]
+  resources :relationships, only: [:create, :destroy]
 end
