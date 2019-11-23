@@ -199,6 +199,15 @@ aside {
   float: right;
 }
 
+.comment-box{
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  a{
+    font-size: 0.5px;
+  }
+}
+
 // user.show
 
 .user-information-box{

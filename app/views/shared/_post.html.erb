@@ -12,10 +12,24 @@
     <h4><strong><%= @post.user.user_name %></strong>
     <%= @post.content %></h4>
   </div>
+  <div class="comment-box">
+    <% @comments.each do |comment| %>
+      <div>
+        <strong><%= comment.user.user_name %></strong>
+        <%= comment.text %>
+        <a><%= link_to "削除する", post_comment_path(post_id: @post.id, id: comment.id), 
+                                   method: :delete if current_user == comment.user %></a>
+      </div>
+    <% end %>
+  </div>
   <div class="timestamp-box">
     <h5><%= time_ago_in_words(@post.created_at) %>前</h5>
   </div>
-  <div class="comment-box">
+  <div class="comment-form-box">
+    <%= form_tag("/posts/#{@post.id}/comments", method: :post) do %>
+      <textarea name="text" placeholder="コメントを追加..."></textarea>
+      <input type="submit" value="コメントする", class="btn-xs">
+    <% end %>
   </div>
   <% if @post.user == current_user %>
     <div class="delete-box">
