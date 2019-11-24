@@ -10,6 +10,8 @@ class User < ApplicationRecord
                                    dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_posts, through: :favorites, source: :post
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable
   devise :database_authenticatable, :registerable,
@@ -62,4 +64,17 @@ class User < ApplicationRecord
   def following?(other_user)
     self.following.include?(other_user)
   end
+  
+  def like(post)
+    self.favorites.create(post_id: post.id)
+  end
+  
+  def unlike(post)
+    self.favorites.find_by(post_id: post.id).destroy
+  end
+  
+  def liking?(post)
+    self.favorite_posts.include?(post)
+  end
+  
 end

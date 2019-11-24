@@ -20,9 +20,23 @@ User.create!(
 end
 
 users = User.order(:created_at).take(6)
-30.times do
+5.times do
   content = Faker::Lorem.sentence
   users.each { |user| user.posts.create!(picture: open("#{Rails.root}/public/sample1.jpeg"), 
+                                         content: content)}
+end
+
+users = User.order(:created_at).take(6)
+5.times do
+  content = Faker::Lorem.sentence
+  users.each { |user| user.posts.create!(picture: open("#{Rails.root}/public/sample2.jpeg"), 
+                                         content: content)}
+end
+
+users = User.order(:created_at).take(6)
+5.times do
+  content = Faker::Lorem.sentence
+  users.each { |user| user.posts.create!(picture: open("#{Rails.root}/public/sample3.jpeg"), 
                                          content: content)}
 end
 

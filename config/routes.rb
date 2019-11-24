@@ -16,10 +16,12 @@ Rails.application.routes.draw do
     get '/users', to: 'users#index', as: :users
     get '/users/:id/following', to: 'users#following', as: :following_user
     get '/users/:id/followers', to: 'users#followers', as: :followers_user
+    get '/users/:id/likes', to: 'users#likes', as: :likes_post
   end
   
   resources :posts,         only: [:new, :create, :show, :destroy] do
     resources :comments,    only: [:create, :destroy]
   end
   resources :relationships, only: [:create, :destroy]
+  resources :favorites,     only: [:create, :destroy]
 end
