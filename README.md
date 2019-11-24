@@ -1,24 +1,31 @@
-# README
+・自分が苦労した点
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+deviseの挙動を理解するのに、予想以上に時間がかかってしまった。
+deviseを使ったユーザー登録機能・ログイン機能・Facebook登録機能を実装するのに手こずってしまった。
+（正直、理解度も30%程度かと思う）
 
-Things you may want to cover:
+Rspecのテストに挑戦したが、思うように書けず、今回は開発を優先してしまった。
 
-* Ruby version
 
-* System dependencies
+・学んだ点
 
-* Configuration
+一番の成長は、自分でアウトプットすることで、プログラミングの楽しさを感じられたこと。
+また、たくさんエラーをおこして、その分経験値を得られたこと。
+コメント機能やお気に入り機能など、railsチュートリアルにない機能を自分で実装していくことで、rubyやrailsの挙動を以前より理解出来たこと。
 
-* Database creation
 
-* Database initialization
+・自慢したい点
 
-* How to run the test suite
+特にないです。
+検索機能や通知機能、モーダル表示など、実装出来ず悔しいです。
 
-* Services (job queues, cache servers, search engines, etc.)
+・相談したい点
 
-* Deployment instructions
+パーシャルを使い、RESTfulにしたい箇所が多々あったが、実装出来なかった。
+具体的には、
+→トップページにて、@feed_itemsを使い、フォローしているユーザーのpostを表示していくためには、eachメソッドのpostを使い、
+　postのshowアクションでは、インスタンス変数の@postを使って実装したが、それを統一するやり方が分からなかった。
 
-* ...
+　
+実際にサブ課題を制作するにあたり、理解しなければいけない知識、自分が足りていない知識を多々感じた。
+業務をやっていくために、最優先していくべきものが区別できないです。
